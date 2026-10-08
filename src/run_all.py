@@ -33,9 +33,9 @@ def run_step(step_num: int):
         print(f"\n✅ {title} — HOÀN THÀNH")
         return True
     except SystemExit as e:
-        if e.code != 0:
+        if e.code not in (None, 0):
             print(f"\n❌ {title} — DỪNG (config thiếu hoặc lỗi)")
-        return e.code == 0
+        return e.code in (None, 0)
     except Exception as e:
         print(f"\n❌ {title} — LỖI: {e}")
         return False
@@ -69,7 +69,8 @@ def main():
         title = STEPS[step_num][0]
         status = "✅ PASS" if success else "❌ FAIL"
         print(f"  {status}  {title}")
+    return len(results) == len(steps_to_run) and all(results.values())
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(0 if main() else 1)

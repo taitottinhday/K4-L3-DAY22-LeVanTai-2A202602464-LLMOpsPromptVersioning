@@ -53,12 +53,18 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã có:
 
 ```bash
 pip install -r requirements.txt
-pip install "langchain-community<0.4"   # bắt buộc: bản 0.4 làm import ragas lỗi
 cp .env.example .env             # điền LANGCHAIN_API_KEY, PROVIDER và key của provider
 cd src && python config.py       # phải in: ✅ Config OK
 ```
 
 Hướng dẫn chi tiết (tạo venv, lấy API key LangSmith, chọn provider, lưu ý cho Windows) ở **Checkpoint 0** trong [CHECKPOINTS.md](CHECKPOINTS.md).
+
+Trên Windows PowerShell 5.1, thay lệnh cuối bằng hai lệnh riêng:
+
+```powershell
+Set-Location src
+python config.py
+```
 
 ---
 

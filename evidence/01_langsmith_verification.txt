@@ -1,0 +1,19 @@
+LangSmith API verification
+Student: Le Van Tai
+MSSV: 2A202602464
+Project: le-van-tai-day22
+Tenant: 8b6ad29b-b395-4e91-8603-5675154851ab
+Project ID: b93e897a-3131-45ef-b57d-a977b4681063
+
+rag-query traces: 50
+ab-rag-query traces: 50
+total required traces: 100
+
+Prompt Hub V1: le-van-tai-2a202602464-rag-prompt-v1 — push OK, pull OK
+Prompt Hub V2: le-van-tai-2a202602464-rag-prompt-v2 — push OK, pull OK
+
+Project URL:
+https://smith.langchain.com/o/8b6ad29b-b395-4e91-8603-5675154851ab/projects/p/b93e897a-3131-45ef-b57d-a977b4681063
+
+Shared trace URL:
+https://smith.langchain.com/public/d8c755fd-b74f-470b-966f-d2207c9591a5/r/01a119eb-a2d0-7362-9ae0-750ed03bf8c2?start_time=2026-10-08T05%3A10%3A35.472008Z

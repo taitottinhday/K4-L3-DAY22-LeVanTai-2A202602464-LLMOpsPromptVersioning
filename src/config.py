@@ -52,6 +52,22 @@ LANGSMITH_API_KEY = os.getenv("LANGCHAIN_API_KEY", "")
 LANGSMITH_PROJECT = os.getenv("LANGCHAIN_PROJECT", "day22-lab")
 
 
+def _configured(value: str) -> bool:
+    """Return True only for a non-empty, non-placeholder secret/value."""
+    if not value:
+        return False
+    normalized = value.strip().lower()
+    return normalized not in {
+        "your_langsmith_api_key_here",
+        "your_openai_api_key_here",
+        "your_google_api_key_here",
+        "your_anthropic_api_key_here",
+        "your_openrouter_api_key_here",
+        "your-api-key-here",
+        "changeme",
+    } and not normalized.startswith("your_")
+
+
 def validate() -> bool:
     """
     Kiểm tra các biến môi trường bắt buộc đã được cấu hình.
@@ -59,16 +75,16 @@ def validate() -> bool:
     """
     missing = []
 
-    if not LANGSMITH_API_KEY:
+    if not _configured(LANGSMITH_API_KEY):
         missing.append("LANGCHAIN_API_KEY (LangSmith)")
 
-    if PROVIDER == "openai" and not OPENAI_API_KEY:
+    if PROVIDER == "openai" and not _configured(OPENAI_API_KEY):
         missing.append("OPENAI_API_KEY")
-    elif PROVIDER == "gemini" and not GOOGLE_API_KEY:
+    elif PROVIDER == "gemini" and not _configured(GOOGLE_API_KEY):
         missing.append("GOOGLE_API_KEY")
-    elif PROVIDER == "anthropic" and not ANTHROPIC_API_KEY:
+    elif PROVIDER == "anthropic" and not _configured(ANTHROPIC_API_KEY):
         missing.append("ANTHROPIC_API_KEY")
-    elif PROVIDER == "openrouter" and not OPENROUTER_API_KEY:
+    elif PROVIDER == "openrouter" and not _configured(OPENROUTER_API_KEY):
         missing.append("OPENROUTER_API_KEY")
     # Ollama: không cần API key
 
