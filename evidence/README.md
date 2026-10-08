@@ -39,20 +39,19 @@ V1 ưu tiên câu trả lời ngắn nên đạt answer relevancy cao hơn (**0.
 ## Xác minh LangSmith
 
 - Project: `le-van-tai-day22`
-- `rag-query`: **50 traces**
-- `ab-rag-query`: **50 traces**
-- Tổng: **100 traces**
+- Lần xác minh API ban đầu: **50 traces `rag-query`** và **50 traces `ab-rag-query`** (đủ 100 traces theo yêu cầu).
+- Sau khi chạy lại bước RAG, giao diện LangSmith hiện **100 traces `rag-query`**; ảnh mới phản ánh số đếm này.
 - Prompt Hub: `le-van-tai-2a202602464-rag-prompt-v1` và `le-van-tai-2a202602464-rag-prompt-v2` đã push và pull thành công.
 - LangSmith project URL: https://smith.langchain.com/o/8b6ad29b-b395-4e91-8603-5675154851ab/projects/p/b93e897a-3131-45ef-b57d-a977b4681063
-- `01_langsmith_traces.png` là ảnh chụp trực tiếp giao diện project LangSmith với bộ lọc `rag-query` và `Trace Count 50`.
-- `01_langsmith_trace_detail.png` là ảnh chụp một trace thật: câu hỏi nằm trong `Input`, ba tài liệu truy xuất nằm trong `VectorStoreRetriever → Output`.
+- `01_langsmith_traces.png` là ảnh chụp trực tiếp giao diện project LangSmith với bộ lọc `rag-query` và `Trace Count 100`.
+- `01_langsmith_trace_detail.png` là ảnh chụp một trace thật: câu hỏi nằm trong `Input`, đoạn knowledge base truy xuất hiển thị trong `VectorStoreRetriever → Output`.
 - `01_langsmith_trace_shared.png` là ảnh chụp trạng thái `Trace Shared`, xác nhận trace đã tạo public link.
-- `02_prompt_hub.png` là ảnh chụp trực tiếp Prompt Hub, hiển thị cả hai prompt V1 và V2. Ảnh được chuyển định dạng JPEG → PNG mà không sửa nội dung.
+- `02_prompt_hub.png` là ảnh chụp trực tiếp Prompt Hub, hiển thị cả hai prompt V1 và V2. Bốn ảnh giao diện được chụp lại rõ nét và chuyển định dạng JPEG → PNG mà không sửa nội dung.
 - Các ảnh LangSmith cũng được chụp với thanh bên thu gọn để tránh lộ email cá nhân. Quyền truy cập project của tài khoản khác chưa được xác minh.
 
 ## Danh mục bằng chứng
 
-- `01_langsmith_traces.png`: ảnh LangSmith project có 50 trace `rag-query`.
+- `01_langsmith_traces.png`: ảnh LangSmith project có 100 trace `rag-query` sau khi chạy lại.
 - `01_langsmith_trace_detail.png`: ảnh trace mẫu với context truy xuất (bổ sung).
 - `02_prompt_hub.png`: ảnh Prompt Hub có cả hai prompt.
 - `02_ab_routing_log.txt`: log A/B có cả nhãn `prompt-v1` và `prompt-v2`.
